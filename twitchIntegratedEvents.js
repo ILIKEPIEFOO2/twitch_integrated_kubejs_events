@@ -102,9 +102,6 @@ function followerTest(numberOfNewFollowers){
 	utils.server.tell("[PieBot] Simulating "+numberOfNewFollowers+" new followers.");
 	runXEvents(numberOfNewFollowers);
 }
-events.listen("player.chat",function(event){
-	followerTest(10);
-});
 events.listen("command.registry",function(event){
 	event.create("follow").alias("twitchfollow").alias("followtest").alias("testfollow").op().execute(function(sender,args){
 		followerTest(parseInt(args[0]));
